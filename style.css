@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --clr-primary: hsl(215, 51%, 70%);
+    --clr-accent: hsl(178, 100%, 50%);
+    --clr-accent-tr: hsla(178, 100%, 50%, 0.4);
+    --clr-body-bg: hsl(217, 54%, 11%);
+    --clr-card-bg: hsl(216, 50%, 16%);
+    --clr-line: hsl(215, 32%, 27%);
+    --clr-neutral: hsl(0, 0%, 100%);
+    --clr-attribution: hsl(228, 45%, 84%);
+
+    --ff: 'Outfit', sans-serif;
+
+    --fs: 1.13rem;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+picture,
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    background-color: var(--clr-body-bg);
+    padding: 1.5rem;
+}
+
+/* Main (card) */
+.card {
+    display: grid;
+    gap: 1.7rem;
+    background-color: var(--clr-card-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    max-width: 21.875rem;
+}
+
+.img {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.img::before {
+    display: grid;
+    place-content: center;
+    content: url(images/icon-view.svg);
+    position: absolute;
+    background-color: var(--clr-accent-tr);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.img:hover::before,
+.img:focus-visible::before {
+    opacity: 1;
+}
+
+.info {
+    display: grid;
+    gap: 1rem;
+    font-family: var(--ff);
+    color: var(--clr-primary);
+}
+
+.card a {
+    color: var(--clr-neutral);
+    text-decoration: none;
+}
+
+.card a:hover,
+.card a:focus-visible {
+    color: var(--clr-accent);
+}
+
+.name {
+    font-size: 1.38rem;
+}
+
+.description {
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.sale-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--clr-line);
+    padding: 0.1rem 0.1rem 0.8rem 0;
+    font-size: 0.96rem;
+}
+
+.price,
+.time {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.price {
+    color: var(--clr-accent);
+    font-weight: bold;
+}
+
+.price::before {
+    content: url(images/icon-ethereum.svg);
+}
+
+.time::before {
+    content: url(images/icon-clock.svg);
+}
+
+.creator {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.96rem;
+}
+
+.creator img {
+    width: 33px;
+    border: 1px solid var(--clr-neutral);
+    border-radius: 50%;
+}
+
+/* Desktop */
+@media screen and (min-width: 25rem) {
+    .description {
+        font-size: var(--fs);
+        padding-top: 0.25rem;
+        line-height: 1.4;
+    }
+
+    .sale-info {
+        padding: 0.65rem 0.1rem 1.35rem 0;
+        font-size: 1.025rem;
+    }
+
+    .creator {
+        padding-bottom: 0.5rem;
+        font-size: 1.025rem;
+    }
+}
+
+/* Footer */
+.attribution {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--clr-primary);
+}
+
+.attribution a {
+    color: var(--clr-attribution);
+}
+
+@media screen and (min-height: 45rem) {
+    .attribution {
+        position: fixed;
+        bottom: 1rem;
+        justify-self: center;
+    }
+}
